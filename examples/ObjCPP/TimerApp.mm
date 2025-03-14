@@ -2,6 +2,8 @@
 #include <iostream>
 #include <chrono>
 
+#define nowDate std::chrono::steady_clock::now()
+
 @interface TimerApp : NSObject <NSApplicationDelegate>
 @property (strong, nonatomic) NSWindow *window;
 @property (strong, nonatomic) NSButton *button;
@@ -61,7 +63,7 @@
         std::cout << "Timer stopped!" << std::endl;
     } else {
         // Start timer
-        self.startTime = std::chrono::steady_clock::now();
+        self.startTime = nowDate;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.01  // Update every 10ms
                                                       target:self
                                                     selector:@selector(timerTick)
@@ -76,8 +78,7 @@
 
 - (void)timerTick {
     // Calculate elapsed time
-    auto now = std::chrono::steady_clock::now();
-    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - self.startTime).count();
+    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(nowDate - self.startTime).count();
 
     int hours = elapsed / 3600000;
     int minutes = (elapsed % 3600000) / 60000;
@@ -105,4 +106,3 @@ int main() {
     }
     return 0;
 }
-

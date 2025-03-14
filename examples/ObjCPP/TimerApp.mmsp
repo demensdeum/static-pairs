@@ -6,7 +6,7 @@ StaticPairConfigFile:TimerApp.sp
 
 @interface TimerApp : NSObject <NSApplicationDelegate>
 @property (strong, nonatomic) NSWindow *window;
-@property (strong, nonatomic) button;
+@property (strong, nonatomic) NSButton *button;
 @property (strong, nonatomic) NSTextField *timeLabel;
 @property (strong, nonatomic) NSTimer *timer;
 @property (nonatomic) std::chrono::steady_clock::time_point startTime;

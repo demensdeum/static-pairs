@@ -52,6 +52,65 @@ The `.sp` configuration file is used to define mappings for the preprocessor. Be
 
 3. **Usage**: These mappings are used by the preprocessor to replace placeholders in your code with the specified types or objects, facilitating type-safe code generation. This example is specifically for Objective-C or Objective-C++, but the concept can potentially be applied to any language with types to help remove redundancy.
 
+### Real-World Example Before and After Preprocessing
+
+Here's a real-world example to illustrate how the preprocessor can transform code using the `.sp` configuration file:
+
+**Before Preprocessing**
+```cpp
+#include <iostream>
+#include <vector>
+
+void processFiles(std::vector<MyNamespace::File> files) {  
+    std::cout << "Processing " << files.size() << " files.\n";
+}
+
+int main() {
+    std::vector<MyNamespace::File> files;  // Explicit declaration
+    processFiles(files);
+}
+```
+
+**After Preprocessing**
+```cpp
+StaticPairConfigFile:PairsConfig.sp
+
+#include <iostream>
+
+void processFiles(files) {  // Expands to "std::vector<MyNamespace::File> files"
+    std::cout << "Processing " << files.size() << " files.\n";
+}
+
+int main() {
+    files;  // Expands to "std::vector<MyNamespace::File> files;"
+    processFiles(files);
+}
+```
+
+This example demonstrates how the preprocessor can simplify code by removing redundancy and making type declarations more concise.
+
+### .sp Configuration Rules for C++ Example
+
+To achieve the transformation shown in the real-world example, you can use the following `.sp` configuration rule:
+
+```plaintext
+files -> std::vector<MyNamespace::File> files
+```
+
+This rule allows the preprocessor to replace the placeholder `files` with `std::vector<MyNamespace::File> files`, simplifying the code by removing explicit type declarations.
+
+### Objective-C++ Timer Application Example
+
+This example demonstrates an Objective-C++ application using the preprocessor for type-safe code generation. The application is a simple timer with a graphical interface.
+
+#### Key Features
+
+- **GUI**: Uses Cocoa for a window with a button and label.
+- **Timer**: Implements a start/stop timer with `NSTimer` and `std::chrono`.
+- **Preprocessor**: Uses `.mmsp` file for type-safe mappings.
+
+This example shows how the preprocessor streamlines code and enhances type safety in an Objective-C++ context.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.

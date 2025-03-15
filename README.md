@@ -34,6 +34,24 @@ Example prototype version is implemented in Python, offering a straightforward a
 
 Ensure that the input file and configuration file are correctly specified within the script or passed as arguments.
 
+## Examples
+
+### Creating a .sp Configuration File
+
+The `.sp` configuration file is used to define mappings for the preprocessor. Below is a guide on how to create and structure this file:
+
+1. **Define Mappings**: Each line in the `.sp` file should define a mapping from a placeholder to a specific type or object. The format is as follows:
+   ```
+   :placeholder -> :(Type *)object
+   ```
+   For example:
+   - `:button -> :(NSButton *)button` maps the placeholder `:button` to an `NSButton` pointer named `button`.
+   - `:timeLabel -> :(NSLabel *)timeLabel` maps `:timeLabel` to an `NSLabel` pointer named `timeLabel`.
+
+2. **Supported Types**: You can map placeholders to various types, such as `NSButton`, `NSLabel`, `NSWindow`, `NSTimer`, and other standard types like `std::chrono::steady_clock::time_point` and `bool`.
+
+3. **Usage**: These mappings are used by the preprocessor to replace placeholders in your code with the specified types or objects, facilitating type-safe code generation. This example is specifically for Objective-C or Objective-C++, but the concept can potentially be applied to any language with types to help remove redundancy.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request for any improvements or bug fixes.

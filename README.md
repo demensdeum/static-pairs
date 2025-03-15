@@ -78,12 +78,12 @@ StaticPairConfigFile:PairsConfig.sp
 #include <iostream>
 #include <vector>
 
-void processFiles(files) {  // Expands to "std::vector<MyNamespace::File> files"
+void processFiles(files) {
     std::cout << "Processing " << files.size() << " files.\n";
 }
 
 int main() {
-    files;  // Expands to "std::vector<MyNamespace::File> files;"
+    files;
     processFiles(files);
 }
 ```

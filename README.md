@@ -110,7 +110,7 @@ This example demonstrates an Objective-C++ application using the preprocessor fo
 - **Timer**: Implements a start/stop timer with `NSTimer` and `std::chrono`.
 - **Preprocessor**: Uses `.mmsp` file for type-safe mappings.
 
-This example shows how the preprocessor streamlines code and enhances type safety in an Objective-C++ context.
+The preprocessor utilizes the `TimerApp.sp` configuration file and the main source code in `TimerApp.mmsp` to produce the final `TimerApp.mm` file. This process streamlines code and enhances type safety in an Objective-C++ context.
 
 ## Contributing
 

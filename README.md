@@ -66,7 +66,7 @@ void processFiles(std::vector<MyNamespace::File> files) {
 }
 
 int main() {
-    std::vector<MyNamespace::File> files;  // Explicit declaration
+    std::vector<MyNamespace::File> files;
     processFiles(files);
 }
 ```

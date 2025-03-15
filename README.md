@@ -76,6 +76,7 @@ int main() {
 StaticPairConfigFile:PairsConfig.sp
 
 #include <iostream>
+#include <vector>
 
 void processFiles(files) {  // Expands to "std::vector<MyNamespace::File> files"
     std::cout << "Processing " << files.size() << " files.\n";
